@@ -23,11 +23,6 @@ const hisaabSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  isEditPermission: [
-    {
-      type: String,
-    },
-  ],
 });
 
 module.exports = mongoose.model("Hisaab", hisaabSchema);
