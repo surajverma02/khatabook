@@ -91,12 +91,33 @@ const deleteHisaab = async (req, res) => {
 
     return res.status(200).json({ message: "Hisaab deleted succefully" });
   } catch (error) {
-    logger.error(`Hisaab Controller :: Get Hisaab : ${error.message}`);
+    logger.error(`Hisaab Controller :: Delete Hisaab : ${error.message}`);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
-const updateHisaab = async (req, res) => {};
+const updateHisaab = async (req, res) => {
+  try {
+    const { title, description, isEncrypted, passcode } = req.body;
+    if (!title || !description) {
+      return res.status(400).json({
+        message: "Title and description are required",
+      });
+    }
+    if (isEncrypted && !passcode) {
+      return res.status(400).json({
+        message: "Passcode is required to encrypt",
+      });
+    }
+    const { id: hisaabId } = req.params;
+    const hisaab = await Hisaab.findOneAndUpdate({_id: hisaabId}, {title, description, isEncrypted, passcode}, {new: true});
+
+    return res.status(200).json(hisaab);
+  } catch (error) {
+    logger.error(`Hisaab Controller :: Update Hisaab : ${error.message}`);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
 
 module.exports = {
   createHisaab,
