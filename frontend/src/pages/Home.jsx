@@ -23,91 +23,103 @@ const Home = () => {
           />
         </button>
       </div>
-      <div className="grid grid-cols-3">
-        <div className="card w-104 bg-base-100 card-sm shadow-sm">
+      <div className="grid grid-cols-3 gap-y-8">
+        <div className="card w-96 bg-gray-100 dark:bg-gray-900 card-sm shadow-sm">
           <div className="card-body">
             <div className="w-full flex items-center">
-              <div className=" flex gap-1 items-center">
-                <span className="text-sm bg-blue-500 text-white px-2 py-1.5 rounded-md flex gap-1">
+              <div className=" flex gap-2 items-center">
+                <span className="text-sm bg-blue-500 text-white px-1.5 py-1 rounded-md flex gap-1">
                   <img src="/icon/lock.svg" alt="" className="h-5" />
                   <button className="">Encrypted</button>
                 </span>
                 <span className="bg-gray-300 text-white p-1.5 rounded-md">
-                  <img src="/icon/hide.png" alt="hidden" className="h-5" />
+                  <img src="/icon/hide.png" alt="hidden" className="h-4" />
                 </span>
               </div>
-              <p className="text-gray-500 text-base card-actions justify-end">
+              <p className="text-gray-500 card-actions justify-end">
                 Created on 12-07-2024
               </p>
             </div>
-            <h2 className="text-2xl font-semibold">Ghar ke khane ka hisaab</h2>
-            <Link to="/hisaab" className="text-base underline text-black/70 dark:text-white/70">
+            <h2 className="text-xl font-semibold">Ghar ke khane ka hisaab</h2>
+            <Link
+              to="/hisaab"
+              className="underline text-black/70 dark:text-white/70"
+            >
               View Hisaab
             </Link>
           </div>
         </div>
-        <div className="card w-104 bg-base-100 card-sm shadow-sm">
+        <div className="card w-96 bg-gray-100 dark:bg-gray-900 card-sm shadow-sm">
           <div className="card-body">
             <div className="w-full flex items-center">
-              <div className=" flex gap-1 items-center">
-                <span className="text-sm bg-emerald-500 text-white px-2 py-1.5 rounded-md flex gap-1">
+              <div className=" flex gap-1.5 items-center">
+                <span className="text-sm bg-emerald-500 text-white px-1.5 py-1 rounded-md flex gap-1">
                   <img src="/icon/unlock.svg" alt="" className="h-5" />
                   <button className="">Available</button>
                 </span>
                 <span className="bg-gray-300 text-white p-1.5 rounded-md">
-                  <img src="/icon/hide.png" alt="hidden" className="h-5" />
+                  <img src="/icon/view.png" alt="hidden" className="h-4" />
                 </span>
               </div>
-              <p className="text-gray-500 text-base card-actions justify-end">
+              <p className="text-gray-500 card-actions justify-end">
                 Created on 12-07-2024
               </p>
             </div>
-            <h2 className="text-2xl font-semibold">Ghar ke khane ka hisaab</h2>
-            <Link to="/hisaab" className="text-base underline text-black/70 dark:text-white/70">
+            <h2 className="text-xl font-semibold">Ghar ke khane ka hisaab</h2>
+            <Link
+              to="/hisaab"
+              className="underline text-black/70 dark:text-white/70"
+            >
               View Hisaab
             </Link>
           </div>
         </div>
-        <div className="card w-104 bg-base-100 card-sm shadow-sm">
+        <div className="card w-96 bg-gray-100 dark:bg-gray-900 card-sm shadow-sm">
           <div className="card-body">
             <div className="w-full flex items-center">
-              <div className=" flex gap-1 items-center">
-                <span className="text-sm bg-blue-500 text-white px-2 py-1.5 rounded-md flex gap-1">
+              <div className=" flex gap-2 items-center">
+                <span className="text-sm bg-blue-500 text-white px-1.5 py-1 rounded-md flex gap-1">
                   <img src="/icon/lock.svg" alt="" className="h-5" />
                   <button className="">Encrypted</button>
                 </span>
                 <span className="bg-gray-300 text-white p-1.5 rounded-md">
-                  <img src="/icon/hide.png" alt="hidden" className="h-5" />
+                  <img src="/icon/hide.png" alt="hidden" className="h-4" />
                 </span>
               </div>
-              <p className="text-gray-500 text-base card-actions justify-end">
+              <p className="text-gray-500 card-actions justify-end">
                 Created on 12-07-2024
               </p>
             </div>
-            <h2 className="text-2xl font-semibold">Ghar ke khane ka hisaab</h2>
-            <Link to="/hisaab" className="text-base underline text-black/70 dark:text-white/70">
+            <h2 className="text-xl font-semibold">Ghar ke khane ka hisaab</h2>
+            <Link
+              to="/hisaab"
+              className="underline text-black/70 dark:text-white/70"
+            >
               View Hisaab
             </Link>
           </div>
         </div>
-        <div className="card w-104 bg-base-100 card-sm shadow-sm">
+        <div className="card w-96 bg-gray-100 dark:bg-gray-900 card-sm shadow-sm">
           <div className="card-body">
             <div className="w-full flex items-center">
-              <div className=" flex gap-1 items-center">
-                <span className="text-sm bg-blue-500 text-white px-2 py-1.5 rounded-md flex gap-1">
-                  <img src="/icon/lock.svg" alt="" className="h-5" />
-                  <button className="">Encrypted</button>
+              <div className=" flex gap-1.5 items-center">
+                <span className="text-sm bg-emerald-500 text-white px-1.5 py-1 rounded-md flex gap-1">
+                  <img src="/icon/unlock.svg" alt="" className="h-5" />
+                  <button className="">Available</button>
                 </span>
                 <span className="bg-gray-300 text-white p-1.5 rounded-md">
-                  <img src="/icon/hide.png" alt="hidden" className="h-5" />
+                  <img src="/icon/view.png" alt="hidden" className="h-4" />
                 </span>
               </div>
-              <p className="text-gray-500 text-base card-actions justify-end">
+              <p className="text-gray-500 card-actions justify-end">
                 Created on 12-07-2024
               </p>
             </div>
-            <h2 className="text-2xl font-semibold">Ghar ke khane ka hisaab</h2>
-            <Link to="/hisaab" className="text-base underline text-black/70 dark:text-white/70">
+            <h2 className="text-xl font-semibold">Ghar ke khane ka hisaab</h2>
+            <Link
+              to="/hisaab"
+              className="underline text-black/70 dark:text-white/70"
+            >
               View Hisaab
             </Link>
           </div>

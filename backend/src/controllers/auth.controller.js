@@ -99,7 +99,7 @@ const authCheck = (req, res) => {
   } catch (error) {
     logger.error(`Auth Controller :: Auth Check : ${error.message}`);
     return res.status(500).json({
-      message: "Internal server error",
+      error: "Internal server error",
     });
   }
 };
