@@ -1,13 +1,32 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useHisaabStore } from "../stores/hisaabStore";
+import toast from "react-hot-toast";
 
 const Home = () => {
-  const { hisaabs, getAllHisaabs, isHisaabFetching } = useHisaabStore();
+  const {
+    hisaabs,
+    getAllHisaabs,
+    isHisaabFetching,
+    selectedHisaab,
+    setSelectedHisaab,
+  } = useHisaabStore();
+
+  const [passcode, setPasscode] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllHisaabs();
   }, [getAllHisaabs]);
+
+  const handlePasscode = (e) => {
+    e.preventDefault();
+    if (!passcode) return toast.error("Passcode are required");
+    if (!(passcode === selectedHisaab.passcode))
+      return toast.error("Passcode is wrong");
+    setPasscode("");
+    navigate(`/hisaab/${selectedHisaab._id}`);
+  };
 
   if (isHisaabFetching)
     return (
@@ -21,24 +40,6 @@ const Home = () => {
 
   return (
     <div className="pl-10 flex flex-col gap-5 pt-10">
-      <div className="flex gap-2">
-        <button className="bg-gray-300 text-[#353535] px-2 py-2 rounded-md flex items-center gap-2 focus:bg-blue-500 focus:text-white">
-          <span>Filters</span>
-          <img src="/icon/filter.svg" alt="hidden" className="h-5" />
-        </button>
-        <button className="bg-gray-300 text-[#353535] px-2 py-2 rounded-md flex items-center gap-2 focus:bg-blue-500 focus:text-white">
-          <span>By date</span>
-          <img src="/icon/date.svg" alt="hidden" className="h-5" />
-        </button>
-        <button className="bg-gray-300 text-[#353535] px-2 py-2 rounded-md flex items-center gap-2 focus:bg-blue-500 focus:text-white">
-          <span>Newest First</span>
-          <img
-            src="/icon/arrow.svg"
-            alt="hidden"
-            className="h-4 text-red-500 stroke-current"
-          />
-        </button>
-      </div>
       <div className="grid grid-cols-2 xl:grid-cols-3 gap-y-8">
         {hisaabs.map((hisaab) => (
           <div
@@ -83,17 +84,80 @@ const Home = () => {
                 </p>
               </div>
               <h2 className="text-xl font-semibold">{hisaab.title}</h2>
-              <Link
-                to={`/hisaab/${hisaab._id}`}
-                className="underline text-black/70 dark:text-white/70"
-              >
-                View Hisaab
-              </Link>
+              {hisaab.isEncrypted ? (
+                <a
+                  onClick={() => setSelectedHisaab(hisaab)}
+                  href="#my_modal_8"
+                  className="underline text-black/70 dark:text-white/70"
+                >
+                  View Hisaab
+                </a>
+              ) : (
+                <Link
+                  to={`/hisaab/${hisaab._id}`}
+                  onClick={() => setSelectedHisaab(hisaab)}
+                  className="underline text-black/70 dark:text-white/70"
+                >
+                  View Hisaab
+                </Link>
+              )}
+            </div>
+
+            <div className="modal" role="dialog" id="my_modal_8">
+              <div className="modal-box flex flex-col items-center gap-2">
+                <img
+                  src="/icon/secure.svg"
+                  alt=""
+                  className="h-16 p-3 bg-blue-200 rounded-full"
+                />
+                <h3 className="text-lg font-bold">Protected Hisaab</h3>
+                <p className="text-sm">
+                  This hisaab is protected. Enter passcode to view!
+                </p>
+                <form
+                  onSubmit={handlePasscode}
+                  className="flex items-center p-1 bg-blue-500 rounded-full"
+                >
+                  <input
+                    value={passcode}
+                    onChange={(e) => setPasscode(e.target.value)}
+                    type="text"
+                    className="pl-3 text-black/80 py-1 bg-white rounded-l-full outline-none border-none"
+                  />
+                  <input
+                    disabled
+                    name="hisaabPasscode"
+                    value={hisaab.passcode}
+                    type="text"
+                    className="hidden"
+                  />
+                  <button type="submit" className="cursor-pointer">
+                    <img
+                      src="/icon/enter.svg"
+                      alt=">"
+                      className="h-8 rounded-full p-1"
+                    />
+                  </button>
+                </form>
+                <div className="">
+                  <a href="#" className="btn rounded-full flex gap-1">
+                    <span>Cancel</span>
+                    <img src="/icon/cancel.svg" alt="X" className="h-5" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ))}
 
-        {hisaabs.length <= 0 && <h1>No Hisaab yet</h1>}
+        {hisaabs.length <= 0 && (
+          <div className="">
+            <h1 className="text-3xl font-bold">Khatabook</h1>
+            <p className="py-4">
+              There is no hisaab yet. Create new hisaab to see!
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

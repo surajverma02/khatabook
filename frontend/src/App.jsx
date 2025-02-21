@@ -9,9 +9,11 @@ import Login from "./pages/Login";
 import CreateHissab from "./pages/CreateHisaab";
 import Hisaab from "./pages/Hisaab";
 import { useAuthStore } from "./stores/authStore";
+import { useHisaabStore } from "./stores/hisaabStore";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const { selectedHisaab } = useHisaabStore();
 
   useEffect(() => {
     checkAuth();
@@ -43,7 +45,9 @@ function App() {
         />
         <Route
           path="/create-hisaab"
-          element={authUser ? <CreateHissab /> : <Navigate to="/login" />}
+          element={
+            authUser ? <CreateHissab /> : <Navigate to="/" />
+          }
         />
         <Route
           path="/hisaab/:hissabId"

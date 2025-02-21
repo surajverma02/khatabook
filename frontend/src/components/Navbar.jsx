@@ -12,16 +12,16 @@ const Navbar = () => {
         </div>
         <div className="flex-none">
           <ul className="flex items-center">
-            <li>
-              <Link
-                to="/"
-                className="px-4 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
-              >
-                Home
-              </Link>
-            </li>
             {authUser && (
               <>
+                <li>
+                  <Link
+                    to="/"
+                    className="px-4 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
+                  >
+                    Home
+                  </Link>
+                </li>
                 <li>
                   <Link
                     to="/create-hisaab"

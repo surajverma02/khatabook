@@ -28,15 +28,12 @@ const createHisaab = async (req, res) => {
       });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashPasscode = isEncrypted ? await bcrypt.hash(passcode, salt) : "";
-
     const hisaab = new Hisaab({
       title,
       description,
       date,
       isEncrypted,
-      passcode: hashPasscode,
+      passcode,
       userId,
     });
 
@@ -53,7 +50,7 @@ const createHisaab = async (req, res) => {
  
 const getAllHisaabs = async (req, res) => {
   try {
-    const hisaabs = await Hisaab.find();
+    const hisaabs = await Hisaab.find({userId: req.user._id});
     if (!hisaabs) {
       return res.status(400).json({
         message: "No hisaab found",

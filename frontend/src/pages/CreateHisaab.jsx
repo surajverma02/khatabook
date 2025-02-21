@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHisaabStore } from "../stores/hisaabStore";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreateHisaab = () => {
   const { createHisaab, isHisaabCreating } = useHisaabStore();
@@ -10,6 +11,7 @@ const CreateHisaab = () => {
     isEncrypted: false,
     passcode: "",
   });
+  const navigate = useNavigate();
 
   const validateHisaab = (hisaabData) => {
     if (!hisaabData.title || !hisaabData.description)
@@ -30,6 +32,7 @@ const CreateHisaab = () => {
       isEncrypted: false,
       passcode: "",
     })
+    navigate("/");
   };
 
   return (

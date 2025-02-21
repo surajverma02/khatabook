@@ -4,9 +4,13 @@ import { axiosInstance } from "../libs/axios";
 
 export const useHisaabStore = create((set) => ({
   hisaabs: [],
+  selectedHisaab: null,
   isHisaabFetching: false,
   isHisaabCreating: false,
+  isHisaabUpdating: false,
   isHisaabDeleting: false,
+
+  setSelectedHisaab: (hisaab) => set({ selectedHisaab: hisaab }),
 
   getAllHisaabs: async () => {
     set({ isHisaabFetching: true });
@@ -36,11 +40,34 @@ export const useHisaabStore = create((set) => ({
     set({ isHisaabDeleting: true });
     try {
       const res = await axiosInstance.delete(`/hisaabs/delete/${hisaabId}`);
-      toast.success(res.message);
+      set({ selectedHisaab: null });
+      toast.success("Hisaab deleted");
     } catch (error) {
       toast.error(error.message);
     } finally {
-      set({ isHisaabDeleting: false });
+      set({ isHisaabDeleting: true });
+    }
+  },
+
+  getHisaab: async (hisaabId) => {
+    try {
+      const res = await axiosInstance.get(`/hisaabs/${hisaabId}`);
+      toast.success(res.data);
+      set({ selectedHisaab: res.data });
+    } catch (error) {
+      toast.error(error.message);
+    }
+  },
+
+  updateHisaab: async (data) => {
+    set({ isHisaabUpdating: true });
+    try {
+      await axiosInstance.put(`/hisaabs/update/${hisaabId}`, data);
+      toast.success("Hisaab updated");
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      set({ isHisaabUpdating: false });
     }
   },
 }));
