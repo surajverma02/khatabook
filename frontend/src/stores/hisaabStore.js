@@ -59,7 +59,7 @@ export const useHisaabStore = create((set) => ({
     }
   },
 
-  updateHisaab: async (data) => {
+  updateHisaab: async (hisaabId, data) => {
     set({ isHisaabUpdating: true });
     try {
       await axiosInstance.put(`/hisaabs/update/${hisaabId}`, data);

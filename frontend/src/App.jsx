@@ -2,18 +2,19 @@ import React, { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import CreateHissab from "./pages/CreateHisaab";
-import Hisaab from "./pages/Hisaab";
 import { useAuthStore } from "./stores/authStore";
 import { useHisaabStore } from "./stores/hisaabStore";
 
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Hisaab from "./pages/Hisaab";
+import CreateHissab from "./pages/CreateHisaab";
+import UpdateHisaab from "./pages/UpdateHisaab";
+
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-  const { selectedHisaab } = useHisaabStore();
 
   useEffect(() => {
     checkAuth();
@@ -45,9 +46,11 @@ function App() {
         />
         <Route
           path="/create-hisaab"
-          element={
-            authUser ? <CreateHissab /> : <Navigate to="/" />
-          }
+          element={authUser ? <CreateHissab /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/update-hisaab/:hisaabId"
+          element={authUser ? <UpdateHisaab /> : <Navigate to="/" />}
         />
         <Route
           path="/hisaab/:hissabId"

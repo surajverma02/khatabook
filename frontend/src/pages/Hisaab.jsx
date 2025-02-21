@@ -30,9 +30,9 @@ const Hisaab = () => {
           )}
         </div>
         <div className="flex gap-2">
-          <a className="bg-yellow-500 text-white px-3 py-1.5 rounded-md">
+          <Link to={`/update-hisaab/${selectedHisaab._id}`} className="bg-yellow-500 text-white px-3 py-1.5 rounded-md">
             Edit
-          </a>
+          </Link>
           <a
             href="#my_modal_8"
             className="btn bg-red-400 text-white px-3 py-1.5 rounded-md"
