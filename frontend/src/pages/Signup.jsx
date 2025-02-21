@@ -24,8 +24,7 @@ const Signup = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     const verified = validateForm(formData);
-    if (verified) await signup(formData);
-    
+    if (verified === true) await signup(formData);
   };
 
   return (
@@ -35,21 +34,27 @@ const Signup = () => {
           <h1 className="w-full text-2xl">Create your account</h1>
           <input
             value={formData.username}
-            onChange={(e) => setFormData({  ...formData, username: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
             type="text"
             placeholder="Username"
             className="input text-gray-700 dark:text-gray-100 font-semibold bg-zinc-50 dark:bg-[#151515] border-none focus:outline-none"
           />
           <input
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             type="email"
             placeholder="Email"
             className="input text-gray-700 dark:text-gray-100 font-semibold bg-zinc-50 dark:bg-[#151515] border-none focus:outline-none"
           />
           <input
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
             type="password"
             placeholder="Password"
             className="input py-5 text-gray-700 dark:text-gray-100 font-semibold bg-zinc-50 dark:bg-[#151515] border-none focus:outline-none"
@@ -58,7 +63,7 @@ const Signup = () => {
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white py-1.5 rounded-lg cursor-pointer"
           >
-            {isSigning ? ("Signing") : ("Create")}
+            {isSigning ? "Signing" : "Create"}
           </button>
           <h3 className="w-full text-md">
             Already have an account?{" "}

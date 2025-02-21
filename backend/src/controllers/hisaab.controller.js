@@ -50,7 +50,7 @@ const createHisaab = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
+ 
 const getAllHisaabs = async (req, res) => {
   try {
     const hisaabs = await Hisaab.find();
@@ -88,7 +88,6 @@ const deleteHisaab = async (req, res) => {
   try {
     const { id: hisaabId } = req.params;
     await Hisaab.findByIdAndDelete(hisaabId);
-
     return res.status(200).json({ message: "Hisaab deleted succefully" });
   } catch (error) {
     logger.error(`Hisaab Controller :: Delete Hisaab : ${error.message}`);

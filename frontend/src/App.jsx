@@ -46,7 +46,7 @@ function App() {
           element={authUser ? <CreateHissab /> : <Navigate to="/login" />}
         />
         <Route
-          path="/hisaab"
+          path="/hisaab/:hissabId"
           element={authUser ? <Hisaab /> : <Navigate to="/login" />}
         />
       </Routes>

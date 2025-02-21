@@ -1,12 +1,19 @@
 import React from "react";
+import { useHisaabStore } from "../stores/hisaabStore";
+import { useParams } from "react-router-dom";
 
 const Hisaab = () => {
-  const encrypted = false;
+  const { hisaabs, deleteHisaab, isHisaabDeleting } = useHisaabStore();
+  const { hissabId } = useParams();
+
+  const hisaab = hisaabs.find((item) => item._id === hissabId);
+  console.log(hisaab)
+
   return (
     <div className="pl-10 flex flex-col gap-5 pt-10">
       <div className="flex gap-8">
         <div className="flex gap-2 items-center">
-          {encrypted ? (
+          {hisaab.isEncrypted ? (
             <>
               <span className="bg-blue-500 text-white px-3 py-1.5 rounded-md">
                 Encrypted
@@ -17,8 +24,8 @@ const Hisaab = () => {
             </>
           ) : (
             <>
-              <span className="bg-blue-500 text-white px-3 py-1.5 rounded-md">
-                UnEncrypted
+              <span className="bg-emerald-500 text-white px-3 py-1.5 rounded-md">
+                Available
               </span>
               <span className="bg-gray-300 text-white px-2 py-2 rounded-md">
                 <img src="/icon/view.png" alt="hidden" className="h-5" />
@@ -30,19 +37,14 @@ const Hisaab = () => {
           <span className="bg-yellow-500 text-white px-3 py-1.5 rounded-md">
             Edit
           </span>
-          <span className="bg-red-400 text-white px-3 py-1.5 rounded-md">
-            Delete
-          </span>
+          <button onClick={() => deleteHisaab(hisaab._id)} disabled={isHisaabDeleting} className="bg-red-400 text-white px-3 py-1.5 rounded-md">
+          Delete
+          </button>
         </div>
       </div>
-      <p className="text-gray-500">Created on 12-07-2024</p>
-      <h2 className="text-2xl font-semibold">Ghar ke khaale ka hisaab</h2>
-      <p className="w-1/2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ab
-        assumenda placeat iste exercitationem reiciendis! Architecto sunt totam
-        velit sit corrupti consequatur obcaecati nesciunt minima earum libero,
-        facere numquam accusantium.
-      </p>
+      <p className="text-gray-500">Created on {hisaab.date}</p>
+      <h2 className="text-2xl font-semibold">{hisaab.title}</h2>
+      <p className="w-1/2">{hisaab.description}</p>
     </div>
   );
 };

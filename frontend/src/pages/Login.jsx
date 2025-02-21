@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const verified = validateForm({ email, password });
-    if (verified) await login({ email, password });
+    if (verified === true) await login({ email, password });
     setEmail("");
     setPassword("");
   };
