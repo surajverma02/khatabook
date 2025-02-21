@@ -31,15 +31,17 @@ const CreateHisaab = () => {
       description: "",
       isEncrypted: false,
       passcode: "",
-    })
+    });
     navigate("/");
   };
 
   return (
     <>
-      <div className="w-1/2 pl-10 pt-10">
+      <div className="sm:w-4/5 md:w-2/3 lg:w-1/2 p-5 sm:p-10">
         <form onSubmit={handleCreateHisaab} className="flex flex-col gap-4">
-          <h1 className="text-xl font-semibold">Create New Hisaab</h1>
+          <h1 className="text-lg sm:text-xl font-semibold">
+            Create New Hisaab
+          </h1>
           <input
             value={hisaabData.title}
             onChange={(e) =>
@@ -47,7 +49,7 @@ const CreateHisaab = () => {
             }
             type="text"
             placeholder="Title"
-            className="input w-2/3 text-gray-700 dark:text-gray-100 bg-zinc-100 dark:bg-[#151515] border-none focus:outline-none"
+            className="input sm:w-2/3 text-gray-700 dark:text-gray-100 bg-zinc-100 dark:bg-[#151515] border-none focus:outline-none"
           />
           <textarea
             value={hisaabData.description}
@@ -58,7 +60,7 @@ const CreateHisaab = () => {
             className="text-gray-700 text-sm bg-zinc-100 dark:text-gray-100 dark:bg-[#151515] border-none px-3 py-2 rounded-md outline-none"
             rows="12"
           ></textarea>
-          <div className="flex justify-between px-5">
+          <div className="flex justify-between flex-wrap gap-4 sm:gap-0 sm:flex-nowrap sm:px-5">
             <label className="flex gap-3 items-center">
               <input
                 checked={hisaabData.isEncrypted}
@@ -81,14 +83,14 @@ const CreateHisaab = () => {
               }
               type="text"
               placeholder="Passcode"
-              className="input w-1/3 text-gray-700 dark:text-gray-100 dark:bg-[#151515] bg-zinc-100 border-none focus:outline-none"
+              className="input sm:w-1/3 text-gray-700 dark:text-gray-100 dark:bg-[#151515] bg-zinc-100 border-none focus:outline-none"
             />
           </div>
           <div>
             <button
               disabled={isHisaabCreating}
               type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md cursor-pointer"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full cursor-pointer"
             >
               {isHisaabCreating ? "Creating hisaab ..." : "Create New Hisaab"}
             </button>

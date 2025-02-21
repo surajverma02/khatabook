@@ -39,23 +39,23 @@ const Home = () => {
     );
 
   return (
-    <div className="pl-10 flex flex-col gap-5 pt-10">
-      <div className="grid grid-cols-2 xl:grid-cols-3 gap-y-8">
+    <div className="p-5 min-sm:flex flex justify-center">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {hisaabs.map((hisaab) => (
           <div
             key={hisaab._id}
-            className="card w-96 bg-gray-100 dark:bg-gray-900 card-sm shadow-sm"
+            className="card max-xs:w-[95vw] w-108 sm:w-76 md:w-90 lg:w-80 xl:w-96 bg-gray-100 dark:bg-gray-900 card-sm shadow-sm"
           >
             <div className="card-body">
               <div className="w-full flex items-center">
-                <div className=" flex gap-2 items-center">
+                <div className="flex gap-2 items-center">
                   {hisaab.isEncrypted ? (
                     <>
                       <span className="text-sm bg-blue-500 text-white px-1.5 py-1 rounded-md flex gap-1">
                         <img src="/icon/lock.svg" alt="" className="h-5" />
                         <button className="">Encrypted</button>
                       </span>
-                      <span className="bg-gray-300 text-white p-1.5 rounded-md">
+                      <span className="bg-gray-300 max-xxs:hidden text-white p-1.5 rounded-md">
                         <img
                           src="/icon/hide.png"
                           alt="hidden"
@@ -69,7 +69,7 @@ const Home = () => {
                         <img src="/icon/unlock.svg" alt="" className="h-5" />
                         <button className="">Available</button>
                       </span>
-                      <span className="bg-gray-300 text-white p-1.5 rounded-md">
+                      <span className="bg-gray-300 max-xxs:hidden text-white p-1.5 rounded-md">
                         <img
                           src="/icon/view.png"
                           alt="hidden"
@@ -111,7 +111,7 @@ const Home = () => {
                   className="h-16 p-3 bg-blue-200 rounded-full"
                 />
                 <h3 className="text-lg font-bold">Protected Hisaab</h3>
-                <p className="text-sm">
+                <p className="text-sm text-center">
                   This hisaab is protected. Enter passcode to view!
                 </p>
                 <form
@@ -119,17 +119,17 @@ const Home = () => {
                   className="flex items-center p-1 bg-blue-500 rounded-full"
                 >
                   <input
-                    value={passcode}
-                    onChange={(e) => setPasscode(e.target.value)}
-                    type="text"
-                    className="pl-3 text-black/80 py-1 bg-white rounded-l-full outline-none border-none"
-                  />
-                  <input
                     disabled
                     name="hisaabPasscode"
                     value={hisaab.passcode}
                     type="text"
                     className="hidden"
+                  />
+                  <input
+                    value={passcode}
+                    onChange={(e) => setPasscode(e.target.value)}
+                    type="text"
+                    className="w-[90%] pl-3 text-black/80 py-1 bg-white rounded-l-full outline-none border-none"
                   />
                   <button type="submit" className="cursor-pointer">
                     <img

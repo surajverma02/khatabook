@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <>
       <div className="h-[90vh] w-full flex justify-center items-center">
-        <form onSubmit={handleLogin} className="flex flex-col gap-3 w-[280px]">
+        <form onSubmit={handleLogin} className="flex flex-col gap-3 w-[280px] p-2 sm:p-0">
           <h1 className="w-full text-2xl">Login your account</h1>
           <input
             value={email}

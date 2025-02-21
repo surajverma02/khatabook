@@ -30,7 +30,7 @@ const Signup = () => {
   return (
     <>
       <div className="h-[90vh] w-full flex justify-center items-center">
-        <form onSubmit={handleSignUp} className="flex flex-col gap-3 w-[280px]">
+        <form onSubmit={handleSignUp} className="p-2 sm:p-0 flex flex-col gap-3 w-[280px]">
           <h1 className="w-full text-2xl">Create your account</h1>
           <input
             value={formData.username}

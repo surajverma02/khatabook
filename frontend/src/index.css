@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@theme {
+    --breakpoint-xs: 28rem;
+    --breakpoint-xxs: 21rem;
+  }

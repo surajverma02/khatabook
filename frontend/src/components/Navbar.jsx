@@ -6,7 +6,7 @@ const Navbar = () => {
   const { logout, authUser } = useAuthStore();
   return (
     <>
-      <div className="navbar px-10">
+      <div className="navbar flex-col gap-3 sm:flex-row sm:px-10">
         <div className="flex-1">
           <a className="text-lg font-semibold">KhataBook</a>
         </div>
@@ -17,7 +17,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/"
-                    className="px-4 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
+                    className="px-2 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
                   >
                     Home
                   </Link>
@@ -25,15 +25,15 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/create-hisaab"
-                    className="px-4 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
+                    className="px-2 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
                   >
-                    Create New Hisaab
+                    Create Hisaab
                   </Link>
                 </li>
                 <li>
                   <button
                     onClick={logout}
-                    className="px-4 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
+                    className="px-2 py-1.5 rounded-sm hover:bg-gray-50 dark:hover:bg-[#151515] cursor-pointer"
                   >
                     Logout
                   </button>
