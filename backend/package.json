@@ -21,6 +21,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "khaatabook": "file:..",
     "mongoose": "^8.10.1",
     "pino": "^9.6.0",
     "pino-pretty": "^13.0.0"
