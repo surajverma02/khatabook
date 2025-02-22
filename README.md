@@ -6,7 +6,13 @@ Developed a MERN-based Hisaab management App known as "Khatabook" in which we ca
 
 ## Live Project Link
 
-[Click here to view the live project](https://khatabook-9r77.onrender.com)
+[Live project URL](https://khatabook-9r77.onrender.com)
+
+## Demo Credentials
+
+- **Email:** suraj@gmail.com
+- **Password:** surajpass
+- **Or create new one**
 
 ## Demo Images
 
@@ -38,12 +44,6 @@ Developed a MERN-based Hisaab management App known as "Khatabook" in which we ca
 
 ![Encrypted Hisaab PopUp](./demo/Screenshot%202025-02-22%20111456.png)
 
-
-## Demo Credentials
-
-- **Email:** suraj@gmail.com
-- **Password:** surajpass
-- **Or create new one**
 
 ## Features
 
